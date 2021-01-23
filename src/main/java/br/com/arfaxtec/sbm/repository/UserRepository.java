@@ -7,6 +7,6 @@ import br.com.arfaxtec.sbm.domain.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String>{
-	
+
 
 }
