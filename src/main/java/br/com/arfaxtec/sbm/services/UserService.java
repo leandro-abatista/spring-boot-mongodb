@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.arfaxtec.sbm.domain.User;
+import br.com.arfaxtec.sbm.dto.UserDTO;
 import br.com.arfaxtec.sbm.repository.UserRepository;
 import br.com.arfaxtec.sbm.services.exception.ObjectNoSuchElementException;
 
@@ -34,6 +35,14 @@ public class UserService {
 		u.setEmail(user.get().getEmail());
 		return u;
 
+	}
+	
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDTO) {
+		return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
 	}
 
 }
