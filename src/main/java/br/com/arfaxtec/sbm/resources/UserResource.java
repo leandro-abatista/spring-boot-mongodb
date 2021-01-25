@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.arfaxtec.sbm.domain.Post;
 import br.com.arfaxtec.sbm.domain.User;
 import br.com.arfaxtec.sbm.dto.UserDTO;
 import br.com.arfaxtec.sbm.services.UserService;
@@ -35,6 +36,12 @@ public class UserResource {
 	public ResponseEntity<UserDTO> findById(@PathVariable String id) {
 		User obj = service.findById(id);
 		return ResponseEntity.ok().body(new UserDTO(obj));
+	}
+	
+	@RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+		User obj = service.findById(id);
+		return ResponseEntity.ok().body(obj.getPosts());/*retorna a lista de posts associada com o user que será buscado pelo id*/
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
