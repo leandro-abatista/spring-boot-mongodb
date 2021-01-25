@@ -30,8 +30,19 @@ public class PostService {
 		 */
 	}
 	
+	/* consulta simples
 	public List<Post> findByTitle(String text){
 		return repo.findByTitleContainingIgnoreCase(text);
+	}
+	*/
+	
+	/**
+	 * consulta com @Query do mongodb
+	 * @param text
+	 * @return
+	 */
+	public List<Post> findByTitle(String text){
+		return repo.searchTitle(text);
 	}
 
 }
