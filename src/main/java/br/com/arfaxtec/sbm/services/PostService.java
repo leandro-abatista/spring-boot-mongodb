@@ -1,5 +1,6 @@
 package br.com.arfaxtec.sbm.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class PostService {
 		 * User u = new User(); u.setId(user.get().getId());
 		 * u.setName(user.get().getName()); u.setEmail(user.get().getEmail()); return u;
 		 */
+	}
+	
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
 	}
 
 }
