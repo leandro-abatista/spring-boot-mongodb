@@ -27,7 +27,7 @@ public class Instantiation implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 		
 		userRepository.deleteAll();
